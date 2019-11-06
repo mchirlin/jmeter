@@ -53,7 +53,7 @@ public class HttpRequestHdr {
     private static final String PROXY_CONNECTION = "proxy-connection"; // $NON-NLS-1$
     public static final String CONTENT_TYPE = "content-type"; // $NON-NLS-1$
     public static final String CONTENT_LENGTH = "content-length"; // $NON-NLS-1$
-
+    public static final String ACCEPT = "accept";
 
     /**
      * Http Request method, uppercased, e.g. GET or POST.
@@ -280,6 +280,14 @@ public class HttpRequestHdr {
         return null;
     }
 
+    public String getAccept() {
+    	Header acceptHeader = headers.get(ACCEPT);
+    	if (acceptHeader != null) {
+    		return acceptHeader.getValue();
+    	}
+    	return null;
+    }
+    
     private boolean isMultipart(String contentType) {
         if (contentType != null && contentType.startsWith(HTTPConstants.MULTIPART_FORM_DATA)) {
             return true;

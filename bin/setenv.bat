@@ -1,0 +1,1 @@
+SET JVM_ARGS="-agentlib:jdwp=transport=dt_socket,server=y,address=8000"
